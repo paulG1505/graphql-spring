@@ -1,0 +1,21 @@
+extend type Query {
+    articles:[Article]
+    article(id:String):Article
+}
+extend type Mutation {
+    createArticle(article: ArticleCreation):Article
+    updateArticle(id:String,article:ArticleCreation):Article
+    deleteArticle(id:String):Article
+}
+
+
+input  ArticleCreation {
+    id: String
+    name: String
+    price: Int
+}
+type Article{
+    id:String
+    name:String
+    price:Int
+}
