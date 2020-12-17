@@ -1,0 +1,27 @@
+extend type Query {
+    persons:[Person]
+    person(id:String):Person
+}
+extend type Mutation {
+    createPerson(person: PersonCreation):Person
+    updatePerson(id:String,person:PersonCreation):Person
+    deletePerson(id:String):Person
+}
+
+
+input  PersonCreation {
+    id:String
+    name:String
+    email:String,
+    age:Int,
+    addres:String,
+    phone:String
+}
+type Person{
+    id:String
+    name:String
+    email:String,
+    age:Int,
+    addres:String,
+    phone:String
+}
