@@ -19,14 +19,18 @@ public class PersonMutation implements GraphQLMutationResolver {
         this.personRepository = personRepository;
     }
 
-    public Person createArticle(Person person) {
+    public Person createPerson(Person person) {
         return this.personRepository.save(person);
     }
 
-    public Person updateArticle(String id, Person person) {
+    public Person updatePerson(String id, Person person) {
         Optional<Person> personDb = this.personRepository.findById(id);
         Person personUpdate = personDb.get();
         personUpdate.setName(person.getName());
+        personUpdate.setEmail(person.getEmail());
+        personUpdate.setAddress(person.getAddress());
+        personUpdate.setAge(person.getAge());
+        personUpdate.setPhone(person.getPhone());
         return this.personRepository.save(personUpdate);
     }
 
